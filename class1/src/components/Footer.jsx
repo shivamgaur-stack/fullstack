@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer" id="site-footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <span style={{ color: 'var(--text-primary)' }}>skill</span>
+          <span style={{ color: 'var(--text-primary)' }}>Skill</span>
           <span style={{
             background: 'linear-gradient(135deg, var(--primary-light), var(--accent))',
             WebkitBackgroundClip: 'text',
@@ -15,6 +15,7 @@ function Footer() {
 
         <div className="footer-links">
           <Link to="/">Home</Link>
+          <Link to="/gigs">Services</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
           <a href="#" onClick={(e) => e.preventDefault()}>Privacy</a>
