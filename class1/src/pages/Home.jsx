@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Home() {
   const categories = [
     { icon: '🎨', title: 'Design & Creative', desc: 'Logos, UI/UX, branding, illustrations and more' },
@@ -59,12 +61,12 @@ function Home() {
           </p>
 
           <div className="hero-actions">
-            <button className="btn-primary" id="hire-cta">
+            <Link to="/gigs" className="btn-primary" id="hire-cta">
               🚀 Hire a Freelancer
-            </button>
-            <button className="btn-secondary" id="become-freelancer-cta">
+            </Link>
+            <Link to="/register" className="btn-secondary" id="become-freelancer-cta">
               Become a Freelancer →
-            </button>
+            </Link>
           </div>
 
           <div className="stats-bar">
@@ -97,11 +99,15 @@ function Home() {
 
         <div className="categories-grid">
           {categories.map((cat, i) => (
-            <div className={`category-card fade-in fade-in-delay-${i % 4 + 1}`} key={cat.title}>
+            <Link
+              to={`/gigs?category=${encodeURIComponent(cat.title)}`}
+              className={`category-card fade-in fade-in-delay-${i % 4 + 1}`}
+              key={cat.title}
+            >
               <div className="category-icon">{cat.icon}</div>
               <h3>{cat.title}</h3>
               <p>{cat.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -139,6 +145,24 @@ function Home() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <Link to="/gigs" className="btn-primary">
+            View All Services →
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section" id="cta-section">
+        <div className="cta-content">
+          <h2>Ready to Get <span className="gradient-text">Started</span>?</h2>
+          <p>Join thousands of professionals and businesses on SkillEX today.</p>
+          <div className="hero-actions">
+            <Link to="/register" className="btn-primary">Create Free Account</Link>
+            <Link to="/gigs" className="btn-secondary">Browse Services</Link>
+          </div>
         </div>
       </section>
     </>
